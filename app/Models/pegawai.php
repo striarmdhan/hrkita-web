@@ -14,7 +14,8 @@ class pegawai extends Model
         'na_peg', 'alamat', 'alamat_dms', 'tmpt_lahir', 
         'tgl_lahir', 'tgl_masuk', 'tgl_dinas', 'sex', 
         'pendidikan', 'bank', 'no_rek', 'no_ktp', 'email', 
-        'no_hp', 'agama', 
+        'no_hp','foto_pegawai', 'agama',
+        'kd_jab', 'kd_golongan', 'status_peg', 'kd_unit',  
     ];
 
 }

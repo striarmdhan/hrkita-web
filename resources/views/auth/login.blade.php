@@ -13,9 +13,9 @@
         <div class="flex flex-auto items-center justify-center sm:items-stretch sm:justify-start">
             <div class="hidden sm:ml-6 sm:block">
                 <div class="flex space-x-4">
-                    <a href="#" class="rounded-md bg-transparent outline-2 outline-[#0C519D] px-3 py-2 text-sm font-medium text-[#0C519D] hover:bg-blue-900 hover:text-white transition delay-50" aria-current="page">Dashboard</a>
-                    <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-500 hover:text-[#0C519D] transition delay-50">Features</a>
-                    <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-500 hover:text-[#0C519D] transition delay-50">HR Information</a>
+                    <a href="{{ url('/') }}" class="rounded-md bg-transparent outline-2 outline-[#0C519D] px-3 py-2 text-sm font-medium text-[#0C519D] hover:bg-blue-900 hover:text-white transition delay-50" aria-current="page">Dashboard</a>
+                    <a href="{{ url('/#features') }}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-500 hover:text-[#0C519D] transition delay-50">Features</a>
+                    <a href="{{ url('/#hrinfo') }}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-500 hover:text-[#0C519D] transition delay-50">HR Information</a>
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
     {{-- FORM CONTENT --}}
     <div class="flex justify-center">
         <div class="m-10 p-2 flex flex-col md:flex-row w-3xl max-h-100 bg-white rounded-[10px] overflow-hidden">
-            {{-- LEFT SIDE --}}
+            {{-- LEFT SIDE IMAGE --}}
             <div class="p-4 w-full max-h-100 bg-center bg-cover rounded-[10px] overflow-hidden" style="background-image: url({{ asset('images/bgcolor1.png') }})">
                 <div>
                     {{-- <h1 class="font-bold text-2xl text-black">Satu <span class="text-red-500">Platform,</span></h1>
@@ -35,8 +35,8 @@
                 </div>
             </div>
 
-            {{-- BG --}}
-            <div class="m-2 flex w-xl p-4">
+            {{-- BG FORM--}}
+            <div class=" flex w-xl p-6">
                 <div class="p-3 flex flex-col justify-center">
                     <div class="flex justify-between items-center mb-6">
                         <h1 class="text-md font-bold text-red-600 md:text-lg">HR<span class="text-[#0C519D]">Kita.</span></h1>
@@ -56,12 +56,12 @@
                             
                                 {{-- Username --}}
                                 <label for="username" class="font-medium text-xs">Username</label>
-                                <div class="mb-1 mt-1">
+                                <div class="mb-1 mt-1 w-full md:w-72">
                                     <input 
                                         type="text"
                                         placeholder="Username" 
                                         name="username" 
-                                        class="w-72 text-sm px-4 py-1.5 border rounded-[10px] focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                        class="w-full text-sm px-4 py-1.5 border rounded-[10px] focus:outline-none focus:ring-2 focus:ring-blue-400"
                                         value="{{ old('username') }}"
                                         required>
                                 </div>

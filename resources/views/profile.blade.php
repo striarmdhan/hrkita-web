@@ -1,24 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="text-2xl font-bold mb-6">Profil Pengguna</h1>
-
+<div id="app">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {{-- Informasi Personal --}}
-        <div class="bg-primary rounded-xl shadow p-6">
-            <h2 class="text-lg font-semibold mb-4 border-b pb-2">Informasi Personal</h2>
-            <p><strong>Nama: {{ $profile->na_peg }}</strong></p>
-            <p><strong>Alamat: {{ $profile->alamat }}</strong></p>
-            <p><strong>No HP: {{ $profile->no_hp }}</strong></p>
-            <p><strong>Tanggal Lahir: {{ $profile->tgl_lahir }}</strong></p>
-            <p><strong>Tempat Lahir: {{ $profile->tmpt_lahir }}</strong></p>
-            <p><strong>Agama: {{ $profile->agama }}</strong></p>
-        </div>
+        <!-- Komponen Vue -->
+        <profile-tabs 
+            :data="{{ json_encode([
+                'nama' => $profile->na_peg,
+                'sex' => $profile->sex,
+                'alamat' => $profile->alamat,
+                'no_hp' => $profile->no_hp,
+                'foto_pegawai' => $profile->foto_pegawai,
+                'tgl_lahir' => $profile->tgl_lahir,
+                'tmpt_lahir' => $profile->tmpt_lahir,
+                'agama' => $profile->agama,
 
-        {{-- Informasi Pekerjaan --}}
-        <div class="bg-primary rounded-xl shadow p-6">
-            <h2 class="text-lg font-semibold mb-4 border-b pb-2">Informasi Pekerjaan</h2>
-            <p><strong>Tanggal Masuk: {{ $profile->tgl_masuk }} </strong></p>
-        </div>
+                'unit' => $profile->nm_unit,
+                'jabatan' => $profile->nm_jab,
+                'bagian' => $profile->nm_bagian ?? '-',
+                'tgl_masuk' => $profile->tgl_masuk,
+                'unit_kerja' => $profile->unit_kerja ?? '-',
+
+            ]) }}"
+        
+            :mutasi="{{ json_encode($mutasi) }}"
+        ></profile-tabs>
     </div>
+</div>
 @endsection
