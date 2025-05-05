@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class sppdController extends Controller
@@ -15,6 +16,20 @@ class sppdController extends Controller
             ['no' => 'SPPD/003/2025', 'tujuan' => 'Bali', 'tgl_berangkat' => '2025-06-01', 'tgl_kembali' => '2025-06-05'],
         ];
 
-        return view('sppd', compact('sppd'));
+        $user = Auth::user();
+        
+        if ($user instanceof \App\Models\user) {
+            $profile = $user->profile();
+            $mutasi = $user->mutasi();
+        } else {
+            $profile = null;
+            $mutasi = null;
+        }
+
+        return view('sppd', [
+            'user' => $user,
+            'profile' => $profile,
+        ],
+        compact('sppd'));
     }
 }

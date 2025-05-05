@@ -4,8 +4,29 @@
 
 @section('content')
     <h1 class="text-2xl font-bold mb-6">Daftar Surat Perintah Perjalanan Dinas</h1>
+    <div class="grid grid-cols-3 gap-6">
+        {{-- FOTO, NAMA, NO HP, EMAIL justify center items center --}}
+        <div class="bg-red-500">01
+            
+        </div>
 
-    <div class="bg-white rounded-lg shadow p-6 overflow-x-auto">
+        {{-- INFORMASI GENERAL tempat lahir, sex, tanggal lahir, alamat, agama, pendidikan --}}
+        <div class="bg-amber-300">02
+
+        </div>
+
+        {{-- INFORMASI PEKERJAAN  jabatan, bagian, unit, tgl masuk --}}
+        <div class="bg-green-200">03
+            
+        </div>
+
+        {{-- TABS MUTASI, HISTORY JABATAN, HISTORY GOLONGAN --}}
+        <div class="col-span-3 bg-blue-300">04
+
+        </div>
+    </div>
+
+    {{-- <div class="bg-white rounded-lg shadow p-6 overflow-x-auto">
         <table class="w-full table-auto">
             <thead>
                 <tr class="bg-gray-100">
@@ -26,5 +47,5 @@
                 @endforeach
             </tbody>
         </table>
-    </div>
+    </div> --}}
 @endsection

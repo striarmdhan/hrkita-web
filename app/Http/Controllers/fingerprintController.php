@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class fingerprintController extends Controller
@@ -15,7 +16,19 @@ class fingerprintController extends Controller
             ['tanggal' => '2025-05-02 08:05', 'status' => 'Masuk'], 
             ['tanggal' => '2025-05-02 16:55', 'status' => 'Pulang'],
         ];
+        $user = Auth::user();
+        
+        if ($user instanceof \App\Models\user) {
+            $profile = $user->profile();
+            $mutasi = $user->mutasi();
+        } else {
+            $profile = null;
+            $mutasi = null;
+        }
 
-        return view('fingerprint', compact('logs'));
+        return view('fingerprint',[
+            'user' => $user,
+            'profile' => $profile,
+        ], compact('logs'));
     }
 }
